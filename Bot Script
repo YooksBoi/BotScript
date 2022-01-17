@@ -7,6 +7,7 @@ local JobID
 local GameID
 local isfollow = false
 local isbhop = false
+local isadvert
 local plr = game.Players.LocalPlayer
 local master = _G.Name
 local prefix = _G.Prefix
@@ -31,6 +32,13 @@ if req then
 	end
 
 local commands = {
+    advert = function(said,speaker)
+        while isadvert do
+            wait(5)
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(said, "All")
+        end
+    end,
+
     wsa = function(number,speaker)
         print(number)
         if plr.Name ~= master then
