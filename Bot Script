@@ -1,4 +1,3 @@
-
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
@@ -7,7 +6,7 @@ local JobID
 local GameID
 local isfollow = false
 local isbhop = false
-local isadvert
+local isadvert = false
 local plr = game.Players.LocalPlayer
 local master = _G.Name
 local prefix = _G.Prefix
@@ -35,6 +34,7 @@ game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageReque
 
 local commands = {
     advert = function(said,speaker)
+        isadvert = true
         while isadvert do
             if plr.Name ~= master then
                 game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(said, "All")
