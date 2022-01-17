@@ -29,13 +29,17 @@ if req then
 				args = {code = 'yyyV2D5JNT'}
 			})
 		})
-	end
+end
+
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Bot Script Loaded! | Made by Hade 5548.", "All")
 
 local commands = {
     advert = function(said,speaker)
         while isadvert do
-            wait(5)
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(said, "All")
+            if plr.Name ~= master then
+                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(said, "All")
+                wait(5)
+            end
         end
     end,
 
