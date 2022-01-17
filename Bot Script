@@ -151,7 +151,7 @@ local commands = {
 					plr.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
 					Thrust.Location = Target.Character.HumanoidRootPart.Position
 					game:FindService("RunService").Heartbeat:wait()
-				until not Target.Character:FindFirstChild("Head") or Target.Character.Humanoid.Health == 0
+				until not Target.Character:FindFirstChild("Head") or plr.Character.Humanoid.Health == 0
 				Thrust:Destroy()
             end
         end
@@ -207,8 +207,6 @@ game.Players:FindFirstChild(master).Chatted:Connect(function(msg)
         commands.advert(asdf,who)
     elseif string.sub(msg, 0, 10)==prefix.."un advert" then
         print("un advert")
-        local asdf=string.sub(msg, 9)
-        print(asdf)
         commands.unadvert(who)
     end
 end)
