@@ -35,8 +35,8 @@ game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageReque
 local commands = {
     advert = function(said,speaker)
         isadvert = true
-        while isadvert do
-            if plr.Name ~= master then
+        if plr.Name ~= master then
+            while isadvert do
                 game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(said, "All")
                 wait(5)
             end
@@ -52,6 +52,11 @@ local commands = {
         end
     end,
     follow = function(player,speaker)
+        if isfollow == true then 
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Use -unfollow before trying to follow someone else! The bots will now stop following...", "All")
+            isfollow = false
+            return 
+        end
         print(player)
         isfollow = true
         
@@ -127,7 +132,7 @@ local commands = {
     cmds = function(speaker)
         loadstring(game:HttpGet('https://pastebin.com/raw/rVm4TgBB'))();
         if plr.Name ~= master then
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("-wsa [number], -follow [player], -unfollow [player], -bhop, -un bhop, -bring bot [bot username], -kill bot [bot username], -reset bots, -bot say [quote], -quit -fling [Player Name (Doesn't have to be full username)]", "All")
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("wsa [number], follow [player], -unfollow [player], -bhop, -un bhop, -bring bot [bot username], -kill bot [bot username], -reset bots, -bot say [quote], -quit -fling [Player Name (Doesn't have to be full username)]", "All")
         end
     end,
     fling = function(plrr,speaker)
@@ -192,6 +197,7 @@ game.Players:FindFirstChild(master).Chatted:Connect(function(msg)
         print(asdf)
         commands.fling(asdf,who)
     elseif string.sub(msg, 0, 6)==prefix.."advert" then
+        print("advert")
         local asdf=string.sub(msg, 9)
         print(asdf)
         commands.advert(asdf,who)
@@ -199,7 +205,7 @@ game.Players:FindFirstChild(master).Chatted:Connect(function(msg)
 end)
 for _,plr in pairs(game.Players:GetPlayers()) do
     for i,v in pairs(Admins) do
-        if plr.Name == v then
+        if plr.Name == v and plr.Name ~= master then
             plr.Chatted:Connect(function(msg)
                 print("chatted")
                 local who = plr.Name or v
