@@ -10,6 +10,7 @@ local isbhop = false
 local plr = game.Players.LocalPlayer
 local master = _G.Name
 local prefix = _G.Prefix
+local Admins = _G.Admins
 
 local http = game:GetService('HttpService') 
 local req = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or getgenv().request or request
@@ -180,4 +181,52 @@ game.Players:FindFirstChild(master).Chatted:Connect(function(msg)
         commands.fling(asdf,who)
     end
 end)
+for _,plr in pairs(game.Players:GetPlayers()) do
+    for i,v in pairs(Admins) do
+        if plr.Name == v then
+            plr.Chatted:Connect(function(msg)
+                print("chatted")
+                local who = plr.Name or v
+                if string.sub(msg, 0, 4)== prefix.."wsa" then
+                    print("workedwsa")
+                    local num = string.sub(msg, 6)
+                    commands.wsa(num,who)
+                elseif string.sub(msg, 0, 7)==prefix.."follow" then
+                    print("workedfollow")
+                    local asdf=string.sub(msg, 9)
+                    commands.follow(asdf,who)
+                elseif string.sub(msg, 0, 9)==prefix.."unfollow" then
+                    print("workedun")
+                    commands.unfollow(who)
+                elseif string.sub(msg, 0, 5)==prefix.."bhop" then
+                    print("workedbhop")
+                    commands.bhop(who)
+                elseif string.sub(msg, 0, 8)==prefix.."un bhop" then
+                    print("workedunbhop")
+                    commands.unbhop(who)
+                elseif string.sub(msg, 0, 10)==prefix.."bring bot" then
+                    local asdf=string.sub(msg, 12)
+                    print("workedun")
+                    commands.bringbot(asdf,who)
+                elseif string.sub(msg, 0, 9)==prefix.."kill bot" then
+                    local asdf=string.sub(msg, 11)
+                    print("workedun")
+                    commands.killbot(asdf,who)
+                elseif string.sub(msg, 0, 11)==prefix.."reset bots" then
+                    print("workedun")
+                    commands.resetbots(who)
+                elseif string.sub(msg, 0, 8)==prefix.."bot say" then
+                    local asdf=string.sub(msg, 10)
+                    commands.say(asdf,who)
+                elseif string.sub(msg, 0, 5)==prefix.."cmds" then
+                    commands.cmds(who)
+                elseif string.sub(msg, 0, 6)==prefix.."fling" then
+                    local asdf=string.sub(msg, 8)
+                    print(asdf)
+                    commands.fling(asdf,who)
+                end
+            end)
+        end
+    end
+end
 wait(4)
