@@ -43,6 +43,10 @@ local commands = {
         end
     end,
 
+    unadvert = function(speaker)
+        isadvert = false
+    end,
+
     wsa = function(number,speaker)
         print(number)
         if plr.Name ~= master then
@@ -201,6 +205,11 @@ game.Players:FindFirstChild(master).Chatted:Connect(function(msg)
         local asdf=string.sub(msg, 9)
         print(asdf)
         commands.advert(asdf,who)
+    elseif string.sub(msg, 0, 10)==prefix.."un advert" then
+        print("un advert")
+        local asdf=string.sub(msg, 9)
+        print(asdf)
+        commands.unadvert(who)
     end
 end)
 for _,plr in pairs(game.Players:GetPlayers()) do
