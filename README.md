@@ -43,3 +43,7 @@ quit
 
 fling [Player Name (Doesn't have to be full username)]
 
+advert [quote]
+
+un advert
+
