@@ -158,12 +158,15 @@ local commands = {
     end
 }
 
-for _,plr in pairs(game.Players:GetPlayers()) do
-    for i,v in pairs(Admins) do
-        if plr.Name == v and plr.Name ~= master then
-            plr.Chatted:Connect(function(msg)
-                print("chatted")
-                local who = plr.Name or v
+
+
+
+
+for _,plrr in pairs(game.Players:GetPlayers()) do
+    plrr.Chatted:Connect(function(msg)
+        for i,v in pairs(Admins) do
+            if plrr.Name == v then
+                local who = plrr.Name or v
                 if string.sub(msg, 0, 4)== prefix.."wsa" then
                     print("workedwsa")
                     local num = string.sub(msg, 6)
@@ -195,16 +198,26 @@ for _,plr in pairs(game.Players:GetPlayers()) do
                 elseif string.sub(msg, 0, 8)==prefix.."bot say" then
                     local asdf=string.sub(msg, 10)
                     commands.say(asdf,who)
+                elseif string.sub(msg, 0, 5)==prefix.."quit" then
+                    commands.quit(who)
                 elseif string.sub(msg, 0, 5)==prefix.."cmds" then
                     commands.cmds(who)
                 elseif string.sub(msg, 0, 6)==prefix.."fling" then
                     local asdf=string.sub(msg, 8)
                     print(asdf)
                     commands.fling(asdf,who)
+                elseif string.sub(msg, 0, 7)==prefix.."advert" then
+                    print("advert")
+                    local asdf=string.sub(msg, 9)
+                    print(asdf)
+                    commands.advert(asdf,who)
+                elseif string.sub(msg, 0, 10)==prefix.."un advert" then
+                    print("un advert")
+                    commands.unadvert(who)
                 end
-            end)
+            end
         end
-    end
+    end)
 end
 
 game.Players:FindFirstChild(master).Chatted:Connect(function(msg)
