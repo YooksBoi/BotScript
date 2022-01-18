@@ -14,6 +14,7 @@ _G.Gui = false -- WORK IN PROGRESS
 _G.Admins = {  -- ONLY PUT OTHER'S NAMES
     "Person_I_Like",
 }
+_G.PriorityBot = "MainBot1" -- Bot you want to use commands like fling
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/YooksBoi/YScripts/main/Bot%20Script", true))()
 ```
