@@ -1,4 +1,4 @@
-# YScripts
+# Bot Script
 
 This is a bot script, use as much bots as u want :)
 
