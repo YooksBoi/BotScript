@@ -1,4 +1,4 @@
-# Bot Script
+# Bot Script v1.4
 
 This is a bot script, use as much bots as u want :)
 
