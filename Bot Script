@@ -138,7 +138,7 @@ print("Running! v1.3.1")
         end,
         fling = function(plrr,speaker)
             for i,v in pairs(game.Players:GetPlayers()) do
-                if string.lower(plrr) == string.lower(string.sub(v.Name,0,#plrr)) and lp.Name ~= master and v.Name == MBot then
+                if string.lower(plrr) == string.lower(string.sub(v.Name,0,#plrr)) and lp.Name ~= master and lp.Name == MBot then
                     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("flinging", "All")
                     local Target = v
                     local Thrust = Instance.new('BodyThrust', lp.Character.HumanoidRootPart)
