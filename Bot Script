@@ -1,7 +1,7 @@
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
-print("Running! v1.4")
+print("Running! v1.3.1")
 
 --variables
     local JobID
@@ -38,6 +38,11 @@ print("Running! v1.4")
     local commands = {
 
         advert = function(said,speaker)
+            if isadvert then
+                if lp.Name ~= master then 
+                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Use -un advert before adverting something else! Get the paid version to use 2+ adverts!", "All")
+                end
+            end
             isadvert = true
             if lp.Name ~= master then
                 while isadvert do
@@ -127,7 +132,7 @@ print("Running! v1.4")
         end,
         quit = function(speaker)
             if lp.Name ~= master then
-                plr:Kick("rejoin")
+                lp:Kick("rejoin")
             end
         end,
         cmds = function(speaker)
@@ -152,6 +157,9 @@ print("Running! v1.4")
                     Thrust:Destroy()
                 end
             end
+        end,
+        paid = function()
+            setclipboard("https://www.roblox.com")
         end
     }
 --Chat Intake
@@ -221,10 +229,10 @@ print("Running! v1.4")
         takeAdmins = false
         wait(1)
         takeAdmins = true
-        rollPlayerChat()
+        --rollPlayerChat()
     end    
 
-    rollPlayerChat()
+    --rollPlayerChat()
 
     game.Players.PlayerAdded:Connect(function(plrr)
         for i,v in pairs(Admins) do
