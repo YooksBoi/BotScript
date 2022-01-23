@@ -67,7 +67,7 @@ print("Running! v1.3.1")
             end
         end,
 
-        unsus - function()
+        unsus = function()
             isbang = false
             bang:Stop()
         end,
