@@ -3,11 +3,13 @@ if not game:IsLoaded() then
 end
 
 if not syn then print("Not using synapse!") return end
-print("Running! v1.5")
+print("Running! v1.3.1")
 
 --variables
     local JobID
     local GameID
+    local fake = true
+    if fake == true then return end
     local isfollow = false
     local isbhop = false
     local isadvert = false
@@ -226,7 +228,7 @@ print("Running! v1.5")
                             print("un advert")
                             commands.unadvert(who)
                         elseif string.sub(msg, 0, 6)==prefix.."go to" then
-                            local asdf=string.sub(msg, 6)
+                            local asdf=string.sub(msg, 8)
                             print(asdf)
                             commands.fling(asdf,who)
                         end
@@ -304,7 +306,7 @@ print("Running! v1.5")
             print("un advert")
             commands.unadvert(who)
         elseif string.sub(msg, 0, 6)==prefix.."go to" then
-            local asdf=string.sub(msg, 6)
+            local asdf=string.sub(msg, 8)
             print(asdf)
             commands.fling(asdf,who)
         end
