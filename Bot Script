@@ -225,8 +225,8 @@ print("Running! v1.5")
                         elseif string.sub(msg, 0, 10)==prefix.."un advert" then
                             print("un advert")
                             commands.unadvert(who)
-                        elseif string.sub(msg, 0, 6)==prefix.."goto" then
-                            local asdf=string.sub(msg, 5)
+                        elseif string.sub(msg, 0, 6)==prefix.."go to" then
+                            local asdf=string.sub(msg, 6)
                             print(asdf)
                             commands.fling(asdf,who)
                         end
@@ -303,8 +303,8 @@ print("Running! v1.5")
         elseif string.sub(msg, 0, 10)==prefix.."un advert" then
             print("un advert")
             commands.unadvert(who)
-        elseif string.sub(msg, 0, 6)==prefix.."goto" then
-            local asdf=string.sub(msg, 5)
+        elseif string.sub(msg, 0, 6)==prefix.."go to" then
+            local asdf=string.sub(msg, 6)
             print(asdf)
             commands.fling(asdf,who)
         end
