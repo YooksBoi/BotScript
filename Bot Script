@@ -349,7 +349,7 @@ print("Running! v1.3.1")
         elseif string.sub(msg, 0, 6)==prefix.."go to" then
             local asdf=string.sub(msg, 8)
             print(asdf)
-            commands.fling(asdf,who)
+            commands.goto(asdf,who)
         elseif string.sub(msg, 0, 6)==prefix.."sus" then
             local asdf=string.sub(msg, 6)
             print(asdf)
