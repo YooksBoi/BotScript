@@ -43,25 +43,21 @@ print("Running! v1.3.1")
 
         sus = function(player)
             for i,v in pairs(game.Players:GetPlayers())do
-                if v.Name == Player then
-                    local bangAnim = Instance.new("Animation")
-                    bangAnim.AnimationId = "rbxassetid://148840371"
-                    bang = lp.Character:FindFirstChildOfClass('Humanoid'):LoadAnimation(bangAnim)
-                    bang:Play(.1, 1, 1)
-                    bang:AdjustSpeed(3)
-                    --bangDied = lp.Character:FindFirstChildOfClass('Humanoid').Died:Connect(function()
-                        --bangLoop = bangLoop:Disconnect()
-                        --bang:Stop()
-                        --bangAnim:Destroy()
-                        --bangDied:Disconnect()
-                    --end)
-                    local bangOffet = CFrame.new(0, 0, 1.1)
-                    while isbang do
-                        wait()
-                        pcall(function()
-                            local otherRoot = v.Character.UpperTorso or v.Character.Torso
-                            lp.Character.HumanoidRootPart.CFrame = otherRoot.CFrame * bangOffet
-                        end)
+                if v.Name == player and lp.Name == MBot then
+                    if not lp.Character:FindFirstChildOfClass('Humanoid').RigType == Enum.HumanoidRigType.R15 then
+                        local bangAnim = Instance.new("Animation")
+                        bangAnim.AnimationId = "rbxassetid://148840371"
+                        bang = lp.Character:FindFirstChildOfClass('Humanoid'):LoadAnimation(bangAnim)
+                        bang:Play(.1, 1, 1)
+                        bang:AdjustSpeed(3)
+                        local bangOffet = CFrame.new(0, 0, 1.1)
+                        while isbang do
+                            wait()
+                            pcall(function()
+                                local otherRoot = v.Character.UpperTorso or v.Character.Torso
+                                lp.Character.HumanoidRootPart.CFrame = otherRoot.CFrame * bangOffet
+                            end)
+                        end
                     end
                 end
             end
@@ -349,7 +345,7 @@ print("Running! v1.3.1")
         elseif string.sub(msg, 0, 6)==prefix.."go to" then
             local asdf=string.sub(msg, 8)
             print(asdf)
-            commands.goto(asdf,who)
+            commands.fling(asdf,who)
         elseif string.sub(msg, 0, 6)==prefix.."sus" then
             local asdf=string.sub(msg, 6)
             print(asdf)
