@@ -16,6 +16,7 @@ print("Running! v1.3.1")
     local prefix = _G.Prefix
     local Admins = _G.Admins
     local MBot = _G.PriorityBot
+    local Noclipping
     local isbang
     local bang
 
@@ -67,7 +68,20 @@ print("Running! v1.3.1")
             isbang = false
             bang:Stop()
         end,
-
+        nofling = function()
+            if lp.Name ~= master then
+                local function NoclipLoop()
+                    if lp.Character ~= nil then
+                        for _, child in pairs(lp.Character:GetDescendants()) do
+                            if child:IsA("BasePart") and child.CanCollide == true and child.Name ~= "aaaaaaaaaaaaaaaaaaaaaa" then
+                                child.CanCollide = false
+                            end
+                        end
+                    end
+                end
+                Noclipping = game:GetService('RunService').Stepped:Connect(NoclipLoop)
+            end
+        end,
         goto = function(player)
             local player2
             for i,v in pairs(game.Players:GetPlayers()) do
