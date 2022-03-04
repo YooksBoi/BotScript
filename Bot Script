@@ -3,7 +3,7 @@ if not game:IsLoaded() then
 end
 
 if not syn then print("Not using synapse!") return end
-print("Running! v1.3.1")
+print("Running! v1.4")
 
 --variables
     local JobID
@@ -44,7 +44,7 @@ print("Running! v1.3.1")
 
         sus = function(player)
             for i,v in pairs(game.Players:GetPlayers())do
-                if v.Name == player and lp.Name == MBot and lp.Name ~= master then
+                if string.sub(v.Name,0,#player) == player and lp.Name == MBot and lp.Name ~= master then
                     if not lp.Character:FindFirstChildOfClass('Humanoid').RigType == Enum.HumanoidRigType.R15 then
                         local bangAnim = Instance.new("Animation")
                         bangAnim.AnimationId = "rbxassetid://148840371"
