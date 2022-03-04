@@ -6,10 +6,6 @@ if not syn then print("Not using synapse!") return end
 print("Running! v1.3.1")
 
 --variables
-    local fake = true
-    if fake then
-        return
-    end
     local JobID
     local GameID
     local isfollow = false
