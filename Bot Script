@@ -6,6 +6,10 @@ if not syn then print("Not using synapse!") return end
 print("Running! v1.3.1")
 
 --variables
+    local fake = true
+    if fake then
+        return
+    end
     local JobID
     local GameID
     local isfollow = false
@@ -44,7 +48,7 @@ print("Running! v1.3.1")
 
         sus = function(player)
             for i,v in pairs(game.Players:GetPlayers())do
-                if v.Name == player and lp.Name == MBot then
+                if v.Name == player and lp.Name == MBot and lp.Name ~= master then
                     if not lp.Character:FindFirstChildOfClass('Humanoid').RigType == Enum.HumanoidRigType.R15 then
                         local bangAnim = Instance.new("Animation")
                         bangAnim.AnimationId = "rbxassetid://148840371"
@@ -119,8 +123,8 @@ print("Running! v1.3.1")
             end
         end,
         follow = function(player,speaker)
-            if isfollow == true then 
-                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Use -unfollow before trying to follow someone else! The bots will now stop following...", "All")
+            if isfollow == true and lp.Name ~= master then 
+                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Use -unfollow before trying to follow someone else! The bots will now stop following the last person...", "All")
                 isfollow = false
             end
             print(player)
@@ -359,15 +363,17 @@ print("Running! v1.3.1")
         elseif string.sub(msg, 0, 6)==prefix.."go to" then
             local asdf=string.sub(msg, 8)
             print(asdf)
-            commands.fling(asdf,who)
-        elseif string.sub(msg, 0, 6)==prefix.."sus" then
+            commands.goto(asdf,who)
+        elseif string.sub(msg, 0, 4)==prefix.."sus" then
             local asdf=string.sub(msg, 6)
             print(asdf)
             commands.sus(asdf,who)
-        elseif string.sub(msg, 0, 6)==prefix.."no sus" then
+        elseif string.sub(msg, 0, 7)==prefix.."no sus" then
             local asdf=string.sub(msg, 8)
             print(asdf)
             commands.ussus(asdf,who)
+        elseif string.sub(msg, 0, 8)==prefix.."nofling" then
+            commands.nofling(who)
         end
     end)
 
