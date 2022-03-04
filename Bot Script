@@ -6,6 +6,10 @@ if not syn then print("Not using synapse!") return end
 print("Running! v1.3.1")
 
 --variables
+    local fake = true
+    if fake then
+        return
+    end
     local JobID
     local GameID
     local isfollow = false
@@ -43,7 +47,7 @@ print("Running! v1.3.1")
     local commands = {
 
         sus = function(player)
-            for i,v in pairs(game.Players:GetPlayers())do
+            for i,v in pairs(game.Players:GetPlayers()) do
                 if v.Name == player and lp.Name == MBot and lp.Name ~= master then
                     if not lp.Character:FindFirstChildOfClass('Humanoid').RigType == Enum.HumanoidRigType.R15 then
                         local bangAnim = Instance.new("Animation")
