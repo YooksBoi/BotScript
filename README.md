@@ -15,7 +15,7 @@ _G.Admins = {
     "Friend"
 }
 _G.PriorityBot = "MainBot1"
-loadstring(game:HttpGet("https://raw.githubusercontent.com/YooksBoi/YScripts/main/Bot%20Script", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/YooksBoi/BotScript/main/Bot%20Script.lua", true))()
 ```
 
 # Commands
