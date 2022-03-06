@@ -5,6 +5,19 @@ This is a bot script, use as much bots as u want :)
 ***YOU NEED THIS TO RUN THE BOTS:***
 https://github.com/ic3w0lf22/Roblox-Account-Manager
 
+# Script
+
+```lua
+_G.Name = "You"
+_G.Prefix = "-"
+_G.Gui = false -- Coming soon, *hint hint*
+_G.Admins = {
+    "Friend"
+}
+_G.PriorityBot = "MainBot1"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/YooksBoi/YScripts/main/Bot%20Script", true))()
+```
+
 # Commands
 
 wsa [number]
