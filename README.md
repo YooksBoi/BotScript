@@ -2,8 +2,8 @@
 
 This is a bot script, use as much bots as u want :)
 
-***YOU NEED THIS TO RUN THE BOTS***
-https://github.com/ic3w0lf22/ROBLOX_MULTI
+***YOU NEED THIS TO RUN THE BOTS:***
+https://github.com/ic3w0lf22/Roblox-Account-Manager
 
 # Commands
 
