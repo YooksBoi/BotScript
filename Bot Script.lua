@@ -43,7 +43,7 @@ print("Running! v1.4.2")
 
         sus = function(player)
             for i,v in pairs(game.Players:GetPlayers())do
-                if v.Name == player and lp.Name == MBot then
+                if string.sub(v.Name,0,#v.Name) == string.sub(player,0,#v.Name) and lp.Name == MBot then
                     if not lp.Character:FindFirstChildOfClass('Humanoid').RigType == Enum.HumanoidRigType.R15 then
                         local bangAnim = Instance.new("Animation")
                         bangAnim.AnimationId = "rbxassetid://148840371"
