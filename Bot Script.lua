@@ -3,13 +3,9 @@ if not game:IsLoaded() then
 end
 
 if not syn then print("Not using synapse!") return end
-print("Running! v1.3.1")
+print("Running! v1.4.2")
 
 --variables
-local fake = true
-    if fake then
-        return
-    end
     local JobID
     local GameID
     local isfollow = false
